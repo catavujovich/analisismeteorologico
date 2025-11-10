@@ -1,16 +1,14 @@
 Package: analisismeteorologico
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Análisis de datos de estaciones meteorológicas
 Version: 0.1.0
 Authors@R: c(
-    person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
+      person("Catalina", "Vujovich", email = "catavujovich17@gmail.com", role = c("aut", "cre")),
+      person("Victoria", "Barrias Tiberi", email = "victoria.nieves.barrias.tiberi@gmail.com", role = "aut")
     )
-  )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Description: Paquete desarrollado para leer y analizar datos meteorológicos de distintas estaciones. 
+    Incluye funciones para importar datos de temperatura, generar tablas con medidas estadísticas 
+    (media, mediana, mínimo y máximo) y crear gráficos del promedio mensual de la temperatura de abrigo a 150 cm.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
