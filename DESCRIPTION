@@ -14,3 +14,9 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/catavujovich/analisismeteorologico
 BugReports: https://github.com/catavujovich/analisismeteorologico/issues
+Imports: 
+    cli,
+    dplyr,
+    ggplot2,
+    readr,
+    tidyr
