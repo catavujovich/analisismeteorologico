@@ -8,18 +8,21 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%"
+
 )
 ```
 
-
-# analisismeteorologico
-
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/catavujovich/analisismeteorologico/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/catavujovich/analisismeteorologico/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/catavujovich/analisismeteorologico/graph/badge.svg)](https://app.codecov.io/gh/catavujovich/analisismeteorologico)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 ![Logo del paquete](man/figures/logo.jpeg)
 
-`analisismeteorologico` es un paquete diseñado para simplificar el trabajo con
+#Análisis meteorológico
+
+**analisismeteorologico** es un paquete diseñado para simplificar el trabajo con
 datos de estaciones meteorológicas. Permite descargar, leer, procesar y visualizar
 información sobre temperatura, humedad, precipitaciones y viento de distintas estaciones.
 
@@ -29,8 +32,12 @@ Lo que hace único a este paquete:
 - Permite calcular tablas resumen con estadísticas descriptivas de temperatura y precipitación.
 - Incluye ejemplos y viñetas para aprender a usar las funciones paso a paso.
 
----
-# Instalación
+
+## Instalación
+
+
+Para instalar el paquete directamente desde GitHub, usá el siguiente comando en R:
+
 ```{r, eval=FALSE}
 # Instalar el paquete 'devtools' si no lo tenés
 install.packages("devtools")
@@ -41,7 +48,6 @@ install.packages("devtools")
 # Instalar el paquete analisis.clima desde GitHub
 devtools::install_github("catavujovich/analisis.clima")
 ```
-Esto descargará e instalará el paquete junto con sus dependencias.
 
 # Uso básico
 
@@ -50,7 +56,7 @@ Esto descargará e instalará el paquete junto con sus dependencias.
 - tabla_resumen_temperatura() -> Genera una tabla resumen con estadísticas básicas de temperatura para varias estaciones (mínimo, máximo, media, mediana y desviación estándar).
 
 - grafico_temperatura_mensual() -> Calcula la temperatura promedio por mes y genera un gráfico de línea que muestra la evolución a lo largo del tiempo.
-```{r}
+{r}
 # Para cargar el paquete en R
 library(analisismeteorologico)
 
@@ -65,12 +71,12 @@ resumen
 grafico <- grafico_temperatura_mensual(NH0098)
 grafico
 
-```
+
 
 # Cómo contribuir
-Abrir un **issue** en GitHub para que puedas reportar errores, un problema con el paquete, o sugerir una mejora o nueva función.
-Podés hacer **Pull requests** para agregar nuevas funciones, mejorar las existentes, corregir errores o mejorar la documentación y ejemplos.
-También podés contribuir con un **fork**, que es una copia del repositorio original en tu propia cuenta de GitHub. Esto te permite trabajar de forma independiente y probar cambios sin afectar el proyecto principal.
+Abrir un *issue* en GitHub para que puedas reportar errores, un problema con el paquete, o sugerir una mejora o nueva función.
+Podés hacer *Pull requests* para agregar nuevas funciones, mejorar las existentes, corregir errores o mejorar la documentación y ejemplos.
+También podés contribuir con un *fork*, que es una copia del repositorio original en tu propia cuenta de GitHub. Esto te permite trabajar de forma independiente y probar cambios sin afectar el proyecto principal.
 
 El flujo típico es:
 
@@ -89,11 +95,9 @@ Abrir un pull request (PR) desde tu fork hacia el repositorio original para que 
 # Consultar la documentación interna de las funciones
 
 Ejemplo de uso: 
-```{r}
+{r}
 ?leer_estacion
 ?tabla_resumen_temperatura
 
-```
+
 Muestra cómo usar la función, sus argumentos, valores de retorno y ejemplos para entender mejor su funcionamiento.
-
-

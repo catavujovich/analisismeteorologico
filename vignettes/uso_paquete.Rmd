@@ -14,9 +14,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include=FALSE}
 library(analisismeteorologico)
+
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(analisis.clima)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
 ```
+
 
 ## 1. Introducción
 El paquete analisismeteorologico fue desarrollado para facilitar la
@@ -118,7 +125,7 @@ La función grafico_temperatura_mensual() permite visualizar de manera clara la 
 
 ```{r}
 grafico <- grafico_temperatura_mensual(
-  datos_0098,
+  NH0098,
   colores = "darkgreen",
   titulo = "Temperatura mensual NH0098"
 )

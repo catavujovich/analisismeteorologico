@@ -1,13 +1,11 @@
 
-<figure>
-<img src="man/figures/logo.jpeg" alt="Logo del paquete" />
-<figcaption aria-hidden="true">Logo del paquete</figcaption>
-</figure>
-
-# analisismeteorologico
-
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/catavujovich/analisismeteorologico/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/catavujovich/analisismeteorologico/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/catavujovich/analisismeteorologico/graph/badge.svg)](https://app.codecov.io/gh/catavujovich/analisismeteorologico)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 <figure>
@@ -15,10 +13,10 @@
 <figcaption aria-hidden="true">Logo del paquete</figcaption>
 </figure>
 
-# Análisis Meteorológico
+\#Análisis meteorológico
 
-analisismeteorologico es un paquete diseñado para simplificar el trabajo
-con datos de estaciones meteorológicas. Permite descargar, leer,
+**analisismeteorologico** es un paquete diseñado para simplificar el
+trabajo con datos de estaciones meteorológicas. Permite descargar, leer,
 procesar y visualizar información sobre temperatura, humedad,
 precipitaciones y viento de distintas estaciones.
 
@@ -29,15 +27,20 @@ resumen con estadísticas descriptivas de temperatura y precipitación. -
 Incluye ejemplos y viñetas para aprender a usar las funciones paso a
 paso.
 
-------------------------------------------------------------------------
+## Instalación
 
-# Instalación
+Para instalar el paquete directamente desde GitHub, usá el siguiente
+comando en R:
 
-{r} install.packages(“devtools”) \# si no lo tenés instalado
+``` r
+# Instalar el paquete 'devtools' si no lo tenés
+install.packages("devtools")
+```
 
-{r} devtools::install_github(“catalinavujovich/analisismeteorologico”)
-
-Esto descargará e instalará el paquete junto con sus dependencias.
+``` r
+# Instalar el paquete analisis.clima desde GitHub
+devtools::install_github("catavujovich/analisis.clima")
+```
 
 # Uso básico
 
