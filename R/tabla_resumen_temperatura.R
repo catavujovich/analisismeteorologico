@@ -1,48 +1,95 @@
-grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {
+#' Generar una tabla resumen de temperatura para varias estaciones
+#'
+#' Esta función descarga (si es necesario), lee y combina los datos
+#' de temperatura de múltiples estaciones meteorológicas. Para cada estación,
+#' se calcula un conjunto de estadísticas descriptivas (mínimo, máximo,
+#' media, mediana, desvío estándar, etc.).
+#'
+#' @description
+#' `tabla_resumen_temperatura()` permite obtener una tabla resumen
+#' con estadísticas descriptivas básicas de temperatura para una lista
+#' de estaciones.
+#'
+#' Si la carpeta indicada en `carpeta` no existe, la función `leer_estacion()`
+#' la crea automáticamente antes de guardar los archivos descargados,
+#' por lo que **no es necesario crear las carpetas manualmente**.
+#'
+#' @param estaciones Vector de caracteres con los IDs de estaciones a procesar
+#' (por ejemplo: `c("NH0098", "NH0437")`).
+#'
+#' @param carpeta Carpeta donde se guardarán los archivos descargados.
+#' Por defecto `"datos"`.
+#' Si la carpeta no existe, se crea automáticamente.
+#'
+#' @returns
+#' Un data frame con una fila por estación y las siguientes columnas:
+#' - `estacion`: ID de la estación
+#' - `n`: cantidad de observaciones válidas
+#' - `minimo`: valor mínimo registrado
+#' - `maximo`: valor máximo registrado
+#' - `media`: promedio de temperatura
+#' - `mediana`: mediana de temperatura
+#' - `sd`: desvío estándar
+#'
+#' @examples
+#' \dontrun{
+#' # Ejemplo 1: Generar tabla resumen para una sola estación
+#' resumen_una <- tabla_resumen_temperatura(
+#'   estaciones = c("NH0098"),
+#'   carpeta = "datos"
+#' )
+#'
+#' # Ejemplo 2: Generar tabla resumen para dos estaciones
+#' resumen_dos <- tabla_resumen_temperatura(
+#'   estaciones = c("NH0098", "NH0437"),
+#'   carpeta = "datos"
+#' )
+#' # Ejemplo 3: Generar tabla resumen para TODAS las estaciones
+#' resumen <- tabla_resumen_temperatura(
+#'   estaciones = c("NH0472", "NH0910", "NH0046", "NH0098", "NH0437")
+#' )
+#' }
+#'
+#' @export
+tabla_resumen_temperatura <- function(estaciones, carpeta = "datos") {
 
-  # Crear columna Mes (primer día de cada mes)
-  datos <- datos %>%
-    dplyr::mutate(
-      Mes = lubridate::floor_date(as.Date(fecha), "month"),
-      Estacion = id
-    )
+  # Lista donde guardar los datos
+  datos_lista <- list()
 
-  # Calcular temperatura mensual por estación
-  temp_mensual <- datos %>%
-    dplyr::group_by(Estacion, Mes) %>%
+  for (id in estaciones) {
+
+    ruta_archivo <- file.path(carpeta, paste0(id, ".csv"))
+    datos <- leer_estacion(id, ruta_archivo)
+
+    # Agrego columna con nombre de estación
+    datos$estacion <- id
+
+    datos_lista[[id]] <- datos
+  }
+
+  # Combinar datos
+  datos_combinados <- dplyr::bind_rows(datos_lista)
+
+  # Transformar a formato largo
+  datos_largos <- tidyr::pivot_longer(
+    datos_combinados,
+    cols = temperatura_abrigo_150cm,
+    names_to = "variable",
+    values_to = "valor"
+  )
+
+  # Crear tabla resumen por estación
+  resumen <- datos_largos %>%
+    dplyr::group_by(estacion) %>%
     dplyr::summarise(
-      `Temperatura media (deg C)` = mean(temperatura_abrigo_150cm, na.rm = TRUE),
+      n = sum(!is.na(valor)),
+      minimo = min(valor, na.rm = TRUE),
+      maximo = max(valor, na.rm = TRUE),
+      media = mean(valor, na.rm = TRUE),
+      mediana = median(valor, na.rm = TRUE),
+      sd = sd(valor, na.rm = TRUE),
       .groups = "drop"
     )
 
-  # Si no pasan colores, generar automáticamente
-  if (is.null(colores)) {
-    estaciones <- unique(temp_mensual$Estacion)
-    colores <- grDevices::rainbow(length(estaciones))
-  }
-
-  # Crear gráfico
-  g <- ggplot2::ggplot(temp_mensual,
-                       ggplot2::aes(x = Mes,
-                                    y = `Temperatura media (deg C)`,
-                                    color = Estacion)) +
-    ggplot2::geom_line(size = 1.1) +
-    ggplot2::geom_point(size = 2) +
-    ggplot2::scale_color_manual(values = colores) +
-    ggplot2::labs(
-      x = "Mes",
-      y = "Temperatura media (deg C)",
-      title = titulo,
-      color = "Estación"
-    ) +
-    ggplot2::theme_minimal(base_size = 12) +
-    ggplot2::theme(
-      plot.title = ggplot2::element_text(hjust = 0.5, face = "bold"),
-      legend.position = "bottom"
-    )
-
-  cli::cli_inform("Gráfico generado correctamente.")
-
-  return(g)
+  return(resumen)
 }
-
