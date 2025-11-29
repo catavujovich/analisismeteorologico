@@ -19,7 +19,8 @@ Imports:
     ggplot2,
     readr,
     testthat,
-    tidyr
+    tidyr,
+    lubridate
 RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.5)
