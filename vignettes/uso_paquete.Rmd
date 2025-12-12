@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
 library(analisismeteorologico)
 
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
-library(analisis.clima)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
