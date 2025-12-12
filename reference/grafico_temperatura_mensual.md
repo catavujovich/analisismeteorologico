@@ -1,11 +1,10 @@
-# Gráfico de temperatura mensual promedio por estación
+# Grafico de temperatura mensual promedio por estacion
 
-Esta función calcula la temperatura promedio mensual a partir de los
-datos de una o más estaciones meteorológicas y genera un gráfico con la
-evolución de la temperatura a lo largo del tiempo. La temperatura
-utilizada es \`temperatura_abrigo_150cm\`. En caso de existir valores
-faltantes (NA), estos se reemplazan por la media mensual correspondiente
-a cada estación.
+Esta funcion calcula la temperatura promedio mensual a partir de los
+datos de una o mas estaciones meteorologicas y genera un grafico con la
+evolucion de la temperatura abrigo a 150cm a lo largo del tiempo. En
+caso de existir valores faltantes (NA), estos se reemplazan por la media
+mensual correspondiente a cada estacion.
 
 ## Usage
 
@@ -17,45 +16,45 @@ grafico_temperatura_mensual(datos, colores = NULL, titulo = "Temperatura")
 
 - datos:
 
-  Data frame que contiene los datos de una o más estaciones. Debe
+  Data frame que contiene los datos de una o mas estaciones. Debe
   incluir las columnas:
 
   fecha
 
-  :   Fecha de la medición (carácter o Date).
+  :   Fecha de la medicion (caracter o Date).
 
   id
 
-  :   Identificador de la estación.
+  :   Identificador de la estacion.
 
   temperatura_abrigo_150cm
 
-  :   Temperatura registrada (numérico).
+  :   Temperatura registrada (numerico).
 
 - colores:
 
-  Vector opcional de colores para cada estación. Vector opcional de
-  colores para asignar a cada estación en el gráfico. Si no se
-  especifica, se asignan colores automáticamente.
+  Vector opcional de colores para cada estacion. Vector opcional de
+  colores para asignar a cada estacion en el grafico. Si no se
+  especifica, se asignan colores automaticamente.
 
 - titulo:
 
-  Título del gráfico. Por defecto: \`"Temperatura"\`.
+  Titulo del grafico. Por defecto asigna el titulo Temperatura.
 
 ## Value
 
-Un objeto ggplot2 con el gráfico generado que muestra la evolución
-mensual de la temperatura promedio para cada estación presente en los
+Un objeto ggplot2 con el grafico generado que muestra la evolucion
+mensual de la temperatura promedio para cada estacion presente en los
 datos.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# Cargar una estación
+# Cargar una estacion
 datos_NH0098 <- leer_estacion("NH0098", "datos/NH0098.csv")
 
-# Generar el gráfico de temperatura mensual
+# Generar el grafico de temperatura mensual
 grafico_temperatura_mensual(datos_NH0098,
                             colores = "darkgreen",
                             titulo = "Temperatura mensual NH0098")
@@ -68,7 +67,7 @@ dos_estaciones <- dplyr::bind_rows(
   leer_estacion("NH0472", "datos/NH0472.csv")
 )
 
-# Generar el gráfico con colores definidos
+# Generar el grafico con colores definidos
 grafico_temperatura_mensual(
   dos_estaciones,
   colores = c("tomato", "steelblue"),
@@ -87,7 +86,7 @@ todas <- dplyr::bind_rows(
 grafico_temperatura_mensual(
   todas,
   colores = c("red", "blue", "green", "purple", "orange"),
-  titulo = "Temperatura mensual – todas las estaciones"
+  titulo = "Temperatura mensual de todas las estaciones"
 )
 } # }
 ```

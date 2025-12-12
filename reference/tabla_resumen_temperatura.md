@@ -1,11 +1,11 @@
 # Generar una tabla resumen de temperatura para varias estaciones
 
 \`tabla_resumen_temperatura()\` permite obtener una tabla resumen con
-estadísticas descriptivas básicas de temperatura para una lista de
+estadisticas descriptivas basicas de temperatura para una lista de
 estaciones.
 
-Si la carpeta indicada en \`carpeta\` no existe, la función
-\`leer_estacion()\` la crea automáticamente antes de guardar los
+Si la carpeta indicada en \`carpeta\` no existe, la funcion
+\`leer_estacion()\` la crea automaticamente antes de guardar los
 archivos descargados, por lo que \*\*no es necesario crear las carpetas
 manualmente\*\*.
 
@@ -24,29 +24,29 @@ tabla_resumen_temperatura(estaciones, carpeta = "datos")
 
 - carpeta:
 
-  Carpeta donde se guardarán los archivos descargados. Por defecto
-  \`"datos"\`. Si la carpeta no existe, se crea automáticamente.
+  Carpeta donde se guardan los archivos descargados. Por defecto
+  \`"datos"\`. Si la carpeta no existe, se crea automaticamente.
 
 ## Value
 
-Un data frame con una fila por estación y las siguientes columnas: -
-\`estacion\`: ID de la estación - \`n\`: cantidad de observaciones
-válidas - \`minimo\`: valor mínimo registrado - \`maximo\`: valor máximo
+Un data frame con una fila por estacion y las siguientes columnas: -
+\`estacion\`: ID de la estacion - \`n\`: cantidad de observaciones
+validas - \`minimo\`: valor minimo registrado - \`maximo\`: valor maximo
 registrado - \`media\`: promedio de temperatura - \`mediana\`: mediana
-de temperatura - \`sd\`: desvío estándar
+de temperatura - \`sd\`: desvio estandar
 
 ## Details
 
-Esta función descarga (si es necesario), lee y combina los datos de
-temperatura de múltiples estaciones meteorológicas. Para cada estación,
+Esta funcion descarga (si es necesario), lee y combina los datos de
+temperatura de multiples estaciones meteorologicas. Para cada estacion,
 se calcula un conjunto de estadísticas descriptivas (mínimo, máximo,
-media, mediana, desvío estándar, etc.).
+media, mediana, desvio estandar, etc.).
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# Ejemplo 1: Generar tabla resumen para una sola estación
+# Ejemplo 1: Generar tabla resumen para una sola estacion
 resumen_una <- tabla_resumen_temperatura(
   estaciones = c("NH0098"),
   carpeta = "datos"
