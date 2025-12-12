@@ -1,27 +1,17 @@
-# Uso básico
+# analisismeteorologico
 
-![Logo del paquete](reference/figures/logo.jpeg)
-
-Logo del paquete
-
-\#Análisis meteorológico
+![](reference/figures/logo.jpeg)
 
 **analisismeteorologico** es un paquete diseñado para simplificar el
-trabajo con datos de estaciones meteorológicas. Permite descargar, leer,
-procesar y visualizar información sobre temperatura, humedad,
-precipitaciones y viento de distintas estaciones.
-
-Lo que hace único a este paquete: - Automatiza la descarga y lectura de
-los datos de múltiples estaciones. - Genera gráficos de evolución
-mensual de temperatura de forma sencilla. - Permite calcular tablas
-resumen con estadísticas descriptivas de temperatura y precipitación. -
-Incluye ejemplos y viñetas para aprender a usar las funciones paso a
-paso.
+trabajo con datos de estaciones meteorológicas. A través de sus
+funciones principales, permite automatizar la descarga, organización y
+procesamiento de los datos, asegurando que la información esté
+estandarizada y lista para su análisis.
 
 ## Instalación
 
-Para instalar el paquete directamente desde GitHub, usá el siguiente
-comando en R:
+Para instalar el paquete directamente desde GitHub usando el siguiente
+comando:
 
 ``` r
 # Instalar el paquete 'devtools' si no lo tenés
@@ -33,55 +23,91 @@ install.packages("devtools")
 devtools::install_github("catavujovich/analisismeteorologico")
 ```
 
-- leer_estacion() -\> Descarga (si es necesario) y lee los datos de una
-  estación meteorológica específica. También los guarda dentro de una
-  carpeta /datos y si no existe, la crea.
+## Explicación de las funciones que incluye el paquete
 
-- tabla_resumen_temperatura() -\> Genera una tabla resumen con
+- **leer_estacion()** -\> Descarga (si es necesario) y lee los datos de
+  una estación meteorológica específica. También los guarda dentro de
+  una carpeta /datos y si no existe, la crea.
+
+- **tabla_resumen_temperatura()** -\> Genera una tabla resumen con
   estadísticas básicas de temperatura para varias estaciones (mínimo,
   máximo, media, mediana y desviación estándar).
 
-- grafico_temperatura_mensual() -\> Calcula la temperatura promedio por
-  mes y genera un gráfico de línea que muestra la evolución a lo largo
-  del tiempo. {r} \# Para cargar el paquete en R
-  library(analisismeteorologico)
+- **grafico_temperatura_mensual()** -\> Calcula la temperatura promedio
+  por mes y genera un gráfico que muestra la evolución de la variable a
+  lo largo del tiempo.
 
-# Leer datos de una estación
+## Ejemplo de uso de las tres funciones
 
-NH0098 \<- leer_estacion(“NH0098”, “datos/NH0098.csv”)
+``` r
+library(analisismeteorologico)
+```
 
-# Generar tabla resumen de temperatura
+``` r
+NH0098 <- leer_estacion("NH0098", "datos/NH0098.csv")
+```
 
-resumen \<- tabla_resumen_temperatura(c(“NH0098”, “NH0437”)) resumen
+``` r
+resumen_NH0098 <- tabla_resumen_temperatura(estaciones = c("NH0098"), carpeta = "datos")
+```
 
-# Graficar temperatura mensual
+``` r
+grafico <- grafico_temperatura_mensual(
+  datos = NH0098,
+  colores = "darkgreen",
+  titulo = "Temperatura mensual NH0098"
+)
+```
 
-grafico \<- grafico_temperatura_mensual(NH0098) grafico
+**Alternativa**
 
-# Cómo contribuir
+``` r
+grafico <- grafico_temperatura_mensual(NH0098)
+```
 
-Abrir un *issue* en GitHub para que puedas reportar errores, un problema
-con el paquete, o sugerir una mejora o nueva función. Podés hacer *Pull
-requests* para agregar nuevas funciones, mejorar las existentes,
-corregir errores o mejorar la documentación y ejemplos. También podés
-contribuir con un *fork*, que es una copia del repositorio original en
-tu propia cuenta de GitHub. Esto te permite trabajar de forma
-independiente y probar cambios sin afectar el proyecto principal.
+En este caso, la función genera el gráfico utilizando: - Un color
+asignado automáticamente para la estación. - El título por defecto
+“Temperatura”.
 
-El flujo típico es:
+## Cómo contribuir al paquete
 
-Hacer un fork del repositorio a tu cuenta.
+El primer paso práctico para poder contribuir en el paquete es realizar
+un fork del repositorio. Un fork es una copia completa del proyecto
+original que se crea en tu propia cuenta de GitHub. Esto te permite
+trabajar en tus cambios sin afectar el repositorio principal. Una vez
+hecho el fork, lo clonás en tu computadora para trabajar localmente. De
+esta manera podés modificar los archivos, agregar nuevas funciones,
+corregir errores, mejorar la documentación, etc. Luego, guardá los
+cambios con mensajes claros mediante commits, Sube los cambios a tu fork
+en GitHub haciendo push y finalmente, si querés que esos cambios se
+incluyan en el proyecto original, podés enviar un pull request para que
+los revisen e integren.
 
-Clonar tu fork a tu computadora para trabajar localmente.
+En resumen el flujo típico es:
 
-Crear una nueva rama (branch) para tus cambios.
+1.  Hacer un fork del repositorio a tu cuenta.
 
-Modificar funciones, mejorar la documentación o agregar ejemplos.
+2.  Clonar tu fork a tu computadora para trabajar localmente.
 
-Hacer commit y push de tus cambios a tu fork.
+3.  Crear una nueva rama (branch) para tus cambios.
 
-Abrir un pull request (PR) desde tu fork hacia el repositorio original
-para que tus mejoras puedan ser revisadas e integradas.
+4.  Realizar los cambios
+
+5.  Hacer commit y push de tus cambios a tu fork.
+
+6.  Abrir un pull request (PR) desde tu fork hacia el repositorio
+    original para que tus mejoras puedan ser revisadas e integradas.
+
+También podes abrir un issue en GitHub para notificar un error, un
+problema con el paquete o proponer mejoras y arreglos.
+
+Para más información y detalles sobre cómo contribuir al paquete, podés
+visitar el siguiente sitio en github:
+<https://github.com/catavujovich/analisismeteorologico/blob/master/.github/CONTRIBUTING.md>
+
+## Autores
+
+**Catalina Vujovich** GitHub: catavujovich
 
 # Package index
 

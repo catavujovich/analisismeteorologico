@@ -51,16 +51,17 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-<figure><img src="reference/figures/logo.jpeg" alt="Logo del paquete"><figcaption aria-hidden="true">
-Logo del paquete
-</figcaption></figure><p>#Análisis meteorológico</p>
-<p><strong>analisismeteorologico</strong> es un paquete diseñado para simplificar el trabajo con datos de estaciones meteorológicas. Permite descargar, leer, procesar y visualizar información sobre temperatura, humedad, precipitaciones y viento de distintas estaciones.</p>
-<p>Lo que hace único a este paquete: - Automatiza la descarga y lectura de los datos de múltiples estaciones. - Genera gráficos de evolución mensual de temperatura de forma sencilla. - Permite calcular tablas resumen con estadísticas descriptivas de temperatura y precipitación. - Incluye ejemplos y viñetas para aprender a usar las funciones paso a paso.</p>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="analisismeteorologico">analisismeteorologico<a class="anchor" aria-label="anchor" href="#analisismeteorologico"></a>
+</h1></div>
+<!-- badges: start -->
+
+<p><img src="reference/figures/logo.jpeg" align="right" width="130"></p>
+<p><strong>analisismeteorologico</strong> es un paquete diseñado para simplificar el trabajo con datos de estaciones meteorológicas. A través de sus funciones principales, permite automatizar la descarga, organización y procesamiento de los datos, asegurando que la información esté estandarizada y lista para su análisis.</p>
 <div class="section level2">
 <h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
 </h2>
-<p>Para instalar el paquete directamente desde GitHub, usá el siguiente comando en R:</p>
+<p>Para instalar el paquete directamente desde GitHub usando el siguiente comando:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Instalar el paquete 'devtools' si no lo tenés</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span></code></pre></div>
@@ -68,43 +69,57 @@ Logo del paquete
 <code class="sourceCode R"><span><span class="co"># Instalar el paquete desde GitHub</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"catavujovich/analisismeteorologico"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<div class="page-header"><h1 id="uso-básico">Uso básico<a class="anchor" aria-label="anchor" href="#uso-b%C3%A1sico"></a>
-</h1></div>
+<div class="section level2">
+<h2 id="explicación-de-las-funciones-que-incluye-el-paquete">Explicación de las funciones que incluye el paquete<a class="anchor" aria-label="anchor" href="#explicaci%C3%B3n-de-las-funciones-que-incluye-el-paquete"></a>
+</h2>
 <ul>
-<li><p>leer_estacion() -&gt; Descarga (si es necesario) y lee los datos de una estación meteorológica específica. También los guarda dentro de una carpeta /datos y si no existe, la crea.</p></li>
-<li><p>tabla_resumen_temperatura() -&gt; Genera una tabla resumen con estadísticas básicas de temperatura para varias estaciones (mínimo, máximo, media, mediana y desviación estándar).</p></li>
-<li><p>grafico_temperatura_mensual() -&gt; Calcula la temperatura promedio por mes y genera un gráfico de línea que muestra la evolución a lo largo del tiempo. {r} # Para cargar el paquete en R library(analisismeteorologico)</p></li>
+<li><p><strong>leer_estacion()</strong> -&gt; Descarga (si es necesario) y lee los datos de una estación meteorológica específica. También los guarda dentro de una carpeta /datos y si no existe, la crea.</p></li>
+<li><p><strong>tabla_resumen_temperatura()</strong> -&gt; Genera una tabla resumen con estadísticas básicas de temperatura para varias estaciones (mínimo, máximo, media, mediana y desviación estándar).</p></li>
+<li><p><strong>grafico_temperatura_mensual()</strong> -&gt; Calcula la temperatura promedio por mes y genera un gráfico que muestra la evolución de la variable a lo largo del tiempo.</p></li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="leer-datos-de-una-estación">Leer datos de una estación<a class="anchor" aria-label="anchor" href="#leer-datos-de-una-estaci%C3%B3n"></a>
-</h1>
-<p>NH0098 &lt;- leer_estacion(“NH0098”, “datos/NH0098.csv”)</p>
+<div class="section level2">
+<h2 id="ejemplo-de-uso-de-las-tres-funciones">Ejemplo de uso de las tres funciones<a class="anchor" aria-label="anchor" href="#ejemplo-de-uso-de-las-tres-funciones"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/catavujovich/analisismeteorologico" class="external-link">analisismeteorologico</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">NH0098</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/leer_estacion.html">leer_estacion</a></span><span class="op">(</span><span class="st">"NH0098"</span>, <span class="st">"datos/NH0098.csv"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">resumen_NH0098</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span>estaciones <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NH0098"</span><span class="op">)</span>, carpeta <span class="op">=</span> <span class="st">"datos"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">grafico</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span></span>
+<span>  datos <span class="op">=</span> <span class="va">NH0098</span>,</span>
+<span>  colores <span class="op">=</span> <span class="st">"darkgreen"</span>,</span>
+<span>  titulo <span class="op">=</span> <span class="st">"Temperatura mensual NH0098"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><strong>Alternativa</strong></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">grafico</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span><span class="va">NH0098</span><span class="op">)</span></span></code></pre></div>
+<p>En este caso, la función genera el gráfico utilizando: - Un color asignado automáticamente para la estación. - El título por defecto “Temperatura”.</p>
 </div>
-<div class="section level1">
-<h1 id="generar-tabla-resumen-de-temperatura">Generar tabla resumen de temperatura<a class="anchor" aria-label="anchor" href="#generar-tabla-resumen-de-temperatura"></a>
-</h1>
-<p>resumen &lt;- tabla_resumen_temperatura(c(“NH0098”, “NH0437”)) resumen</p>
+<div class="section level2">
+<h2 id="cómo-contribuir-al-paquete">Cómo contribuir al paquete<a class="anchor" aria-label="anchor" href="#c%C3%B3mo-contribuir-al-paquete"></a>
+</h2>
+<p>El primer paso práctico para poder contribuir en el paquete es realizar un fork del repositorio. Un fork es una copia completa del proyecto original que se crea en tu propia cuenta de GitHub. Esto te permite trabajar en tus cambios sin afectar el repositorio principal. Una vez hecho el fork, lo clonás en tu computadora para trabajar localmente. De esta manera podés modificar los archivos, agregar nuevas funciones, corregir errores, mejorar la documentación, etc. Luego, guardá los cambios con mensajes claros mediante commits, Sube los cambios a tu fork en GitHub haciendo push y finalmente, si querés que esos cambios se incluyan en el proyecto original, podés enviar un pull request para que los revisen e integren.</p>
+<p>En resumen el flujo típico es:</p>
+<ol style="list-style-type: decimal">
+<li><p>Hacer un fork del repositorio a tu cuenta.</p></li>
+<li><p>Clonar tu fork a tu computadora para trabajar localmente.</p></li>
+<li><p>Crear una nueva rama (branch) para tus cambios.</p></li>
+<li><p>Realizar los cambios</p></li>
+<li><p>Hacer commit y push de tus cambios a tu fork.</p></li>
+<li><p>Abrir un pull request (PR) desde tu fork hacia el repositorio original para que tus mejoras puedan ser revisadas e integradas.</p></li>
+</ol>
+<p>También podes abrir un issue en GitHub para notificar un error, un problema con el paquete o proponer mejoras y arreglos.</p>
+<p>Para más información y detalles sobre cómo contribuir al paquete, podés visitar el siguiente sitio en github: <a href="https://github.com/catavujovich/analisismeteorologico/blob/master/.github/CONTRIBUTING.md" class="external-link uri">https://github.com/catavujovich/analisismeteorologico/blob/master/.github/CONTRIBUTING.md</a></p>
 </div>
-<div class="section level1">
-<h1 id="graficar-temperatura-mensual">Graficar temperatura mensual<a class="anchor" aria-label="anchor" href="#graficar-temperatura-mensual"></a>
-</h1>
-<p>grafico &lt;- grafico_temperatura_mensual(NH0098) grafico</p>
+<div class="section level2">
+<h2 id="autores">Autores<a class="anchor" aria-label="anchor" href="#autores"></a>
+</h2>
+<p><strong>Catalina Vujovich</strong> GitHub: catavujovich</p>
 </div>
-<div class="section level1">
-<h1 id="cómo-contribuir">Cómo contribuir<a class="anchor" aria-label="anchor" href="#c%C3%B3mo-contribuir"></a>
-</h1>
-<p>Abrir un <em>issue</em> en GitHub para que puedas reportar errores, un problema con el paquete, o sugerir una mejora o nueva función. Podés hacer <em>Pull requests</em> para agregar nuevas funciones, mejorar las existentes, corregir errores o mejorar la documentación y ejemplos. También podés contribuir con un <em>fork</em>, que es una copia del repositorio original en tu propia cuenta de GitHub. Esto te permite trabajar de forma independiente y probar cambios sin afectar el proyecto principal.</p>
-<p>El flujo típico es:</p>
-<p>Hacer un fork del repositorio a tu cuenta.</p>
-<p>Clonar tu fork a tu computadora para trabajar localmente.</p>
-<p>Crear una nueva rama (branch) para tus cambios.</p>
-<p>Modificar funciones, mejorar la documentación o agregar ejemplos.</p>
-<p>Hacer commit y push de tus cambios a tu fork.</p>
-<p>Abrir un pull request (PR) desde tu fork hacia el repositorio original para que tus mejoras puedan ser revisadas e integradas.</p>
 </div>
-
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
