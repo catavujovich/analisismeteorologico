@@ -29,8 +29,8 @@ install.packages("devtools")
 ```
 
 ``` r
-# Instalar el paquete analisis.clima desde GitHub
-devtools::install_github("catavujovich/analisis.clima")
+# Instalar el paquete desde GitHub
+devtools::install_github("catavujovich/analisismeteorologico")
 ```
 
 - leer_estacion() -\> Descarga (si es necesario) y lee los datos de una
