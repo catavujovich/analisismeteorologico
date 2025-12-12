@@ -65,8 +65,8 @@ resumen_1 <- tabla_resumen_temperatura(
   estaciones = c("NH0098"),
   carpeta = "datos"
 )
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv'…
-#> Lectura completada. El dataset de la estación NH0098 tiene 23733 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv
+#> Lectura completada. El dataset de la estacion NH0098 tiene 23733 filas y 35
 #> columnas.
 
 resumen_1
@@ -83,11 +83,11 @@ resumen_2 <- tabla_resumen_temperatura(
   estaciones = c("NH0098", "NH0437"),
   carpeta = "datos"
 )
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv'…
-#> Lectura completada. El dataset de la estación NH0098 tiene 23733 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv
+#> Lectura completada. El dataset de la estacion NH0098 tiene 23733 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv'…
-#> Lectura completada. El dataset de la estación NH0437 tiene 18929 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv
+#> Lectura completada. El dataset de la estacion NH0437 tiene 18929 filas y 35
 #> columnas.
 resumen_2
 #> # A tibble: 2 × 7
@@ -103,20 +103,20 @@ resumen_2
 resumen_todas <- tabla_resumen_temperatura(
   estaciones = c("NH0472", "NH0910", "NH0046", "NH0098", "NH0437")
 )
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0472.csv'…
-#> Lectura completada. El dataset de la estación NH0472 tiene 20425 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0472.csv
+#> Lectura completada. El dataset de la estacion NH0472 tiene 20425 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0910.csv'…
-#> Lectura completada. El dataset de la estación NH0910 tiene 15553 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0910.csv
+#> Lectura completada. El dataset de la estacion NH0910 tiene 15553 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0046.csv'…
-#> Lectura completada. El dataset de la estación NH0046 tiene 17041 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0046.csv
+#> Lectura completada. El dataset de la estacion NH0046 tiene 17041 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv'…
-#> Lectura completada. El dataset de la estación NH0098 tiene 23733 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv
+#> Lectura completada. El dataset de la estacion NH0098 tiene 23733 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv'…
-#> Lectura completada. El dataset de la estación NH0437 tiene 18929 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv
+#> Lectura completada. El dataset de la estacion NH0437 tiene 18929 filas y 35
 #> columnas.
 
 resumen_todas
@@ -144,7 +144,7 @@ grafico <- grafico_temperatura_mensual(
   colores = "darkgreen",
   titulo = "Temperatura mensual NH0098"
 )
-#> Gráfico generado correctamente.
+#> Grafico generado correctamente.
 
 grafico
 #> Warning: Removed 3 rows containing missing values or values outside the scale range
@@ -160,18 +160,18 @@ multi <- dplyr::bind_rows(
   leer_estacion("NH0437", "datos/NH0437.csv"),
   leer_estacion("NH0472", "datos/NH0472.csv")
 )
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv'…
-#> Lectura completada. El dataset de la estación NH0437 tiene 18929 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv
+#> Lectura completada. El dataset de la estacion NH0437 tiene 18929 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0472.csv'…
-#> Lectura completada. El dataset de la estación NH0472 tiene 20425 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0472.csv
+#> Lectura completada. El dataset de la estacion NH0472 tiene 20425 filas y 35
 #> columnas.
 
 grafico2 <- grafico_temperatura_mensual(
   multi,
   titulo = "Promedio mensual – dos estaciones"
 )
-#> Gráfico generado correctamente.
+#> Grafico generado correctamente.
 
 grafico2
 #> Warning: Removed 1 row containing missing values or values outside the scale range
@@ -192,20 +192,20 @@ todas <- dplyr::bind_rows(
   leer_estacion("NH0046", "datos/NH0046.csv"),
   leer_estacion("NH0098", "datos/NH0098.csv")
 )
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv'…
-#> Lectura completada. El dataset de la estación NH0437 tiene 18929 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0437.csv
+#> Lectura completada. El dataset de la estacion NH0437 tiene 18929 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0472.csv'…
-#> Lectura completada. El dataset de la estación NH0472 tiene 20425 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0472.csv
+#> Lectura completada. El dataset de la estacion NH0472 tiene 20425 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0910.csv'…
-#> Lectura completada. El dataset de la estación NH0910 tiene 15553 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0910.csv
+#> Lectura completada. El dataset de la estacion NH0910 tiene 15553 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0046.csv'…
-#> Lectura completada. El dataset de la estación NH0046 tiene 17041 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0046.csv
+#> Lectura completada. El dataset de la estacion NH0046 tiene 17041 filas y 35
 #> columnas.
-#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv'…
-#> Lectura completada. El dataset de la estación NH0098 tiene 23733 filas y 35
+#> El archivo ya existe en la ruta indicada. Leyendo archivo 'datos/NH0098.csv
+#> Lectura completada. El dataset de la estacion NH0098 tiene 23733 filas y 35
 #> columnas.
 
 grafico_temperatura_mensual(
@@ -213,7 +213,7 @@ grafico_temperatura_mensual(
   colores = c("red", "blue", "green", "purple", "orange"),
   titulo = "Temperatura mensual – todas las estaciones"
 )
-#> Gráfico generado correctamente.
+#> Grafico generado correctamente.
 #> Warning: Removed 1 row containing missing values or values outside the scale range
 #> (`geom_line()`).
 #> Warning: Removed 11 rows containing missing values or values outside the scale range
