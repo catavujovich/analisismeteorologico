@@ -12,83 +12,96 @@ knitr::opts_chunk$set(
 )
 ```
 
+# analisismeteorologico
+
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/catavujovich/analisismeteorologico/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/catavujovich/analisismeteorologico/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/catavujovich/analisismeteorologico/graph/badge.svg)](https://app.codecov.io/gh/catavujovich/analisismeteorologico)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-![Logo del paquete](man/figures/logo.jpeg)
-
-#Análisis meteorológico
+<img src="man/figures/logo.jpeg" align="right" width="130"/>
 
 **analisismeteorologico** es un paquete diseñado para simplificar el trabajo con
-datos de estaciones meteorológicas. Permite descargar, leer, procesar y visualizar
-información sobre temperatura, humedad, precipitaciones y viento de distintas estaciones.
-
-Lo que hace único a este paquete:
-- Automatiza la descarga y lectura de los datos de múltiples estaciones.
-- Genera gráficos de evolución mensual de temperatura de forma sencilla.
-- Permite calcular tablas resumen con estadísticas descriptivas de temperatura y precipitación.
-- Incluye ejemplos y viñetas para aprender a usar las funciones paso a paso.
-
+datos de estaciones meteorológicas. A través de sus funciones principales, permite automatizar la descarga, organización y procesamiento de los datos, asegurando que la información esté estandarizada y lista para su análisis.
 
 ## Instalación
-
-
-Para instalar el paquete directamente desde GitHub, usá el siguiente comando en R:
+Para instalar el paquete directamente desde GitHub usando el siguiente comando:
 
 ```{r, eval=FALSE}
 # Instalar el paquete 'devtools' si no lo tenés
 install.packages("devtools")
 ```
 
-
 ```{r, eval=FALSE}
 # Instalar el paquete desde GitHub
 devtools::install_github("catavujovich/analisismeteorologico")
 ```
 
-# Uso básico
+## Explicación de las funciones que incluye el paquete
+- **leer_estacion()** -> Descarga (si es necesario) y lee los datos de una estación meteorológica específica. También los guarda dentro de una carpeta /datos y si no existe, la crea.
 
-- leer_estacion() -> Descarga (si es necesario) y lee los datos de una estación meteorológica específica. También los guarda dentro de una carpeta /datos y si no existe, la crea.
+- **tabla_resumen_temperatura()** -> Genera una tabla resumen con estadísticas básicas de temperatura para varias estaciones (mínimo, máximo, media, mediana y desviación estándar).
 
-- tabla_resumen_temperatura() -> Genera una tabla resumen con estadísticas básicas de temperatura para varias estaciones (mínimo, máximo, media, mediana y desviación estándar).
+- **grafico_temperatura_mensual()** -> Calcula la temperatura promedio por mes y genera un gráfico que muestra la evolución de la variable a lo largo del tiempo.
 
-- grafico_temperatura_mensual() -> Calcula la temperatura promedio por mes y genera un gráfico de línea que muestra la evolución a lo largo del tiempo.
-{r}
-# Para cargar el paquete en R
+
+## Ejemplo de uso de las tres funciones
+
+```{r, eval=FALSE}
 library(analisismeteorologico)
+```
 
-# Leer datos de una estación
+```{r, eval=FALSE}
 NH0098 <- leer_estacion("NH0098", "datos/NH0098.csv")
+```
 
-# Generar tabla resumen de temperatura
-resumen <- tabla_resumen_temperatura(c("NH0098", "NH0437"))
-resumen
+```{r, eval=FALSE}
+resumen_NH0098 <- tabla_resumen_temperatura(estaciones = c("NH0098"), carpeta = "datos")
+```
 
-# Graficar temperatura mensual
+```{r, eval=FALSE}
+grafico <- grafico_temperatura_mensual(
+  datos = NH0098,
+  colores = "darkgreen",
+  titulo = "Temperatura mensual NH0098"
+)
+```
+
+**Alternativa**
+```{r, eval=FALSE}
 grafico <- grafico_temperatura_mensual(NH0098)
-grafico
+
+```
+En este caso, la función genera el gráfico utilizando:
+- Un color asignado automáticamente para la estación.
+- El título por defecto "Temperatura".
 
 
+## Cómo contribuir al paquete
+El primer paso práctico para poder contribuir en el paquete es realizar un fork del repositorio. Un fork es una copia completa del proyecto original que se crea en tu propia cuenta de GitHub. Esto te permite trabajar en tus cambios sin afectar el repositorio principal. Una vez hecho el fork, lo clonás en tu computadora para trabajar localmente. De esta manera podés modificar los archivos, agregar nuevas funciones, corregir errores, mejorar la documentación, etc.
+Luego, guardá los cambios con mensajes claros mediante commits, Sube los cambios a tu fork en GitHub haciendo push y finalmente, si querés que esos cambios se incluyan en el proyecto original, podés enviar un pull request para que los revisen e integren.
 
-# Cómo contribuir
-Abrir un *issue* en GitHub para que puedas reportar errores, un problema con el paquete, o sugerir una mejora o nueva función.
-Podés hacer *Pull requests* para agregar nuevas funciones, mejorar las existentes, corregir errores o mejorar la documentación y ejemplos.
-También podés contribuir con un *fork*, que es una copia del repositorio original en tu propia cuenta de GitHub. Esto te permite trabajar de forma independiente y probar cambios sin afectar el proyecto principal.
+En resumen el flujo típico es:
 
-El flujo típico es:
+1. Hacer un fork del repositorio a tu cuenta.
 
-Hacer un fork del repositorio a tu cuenta.
+2. Clonar tu fork a tu computadora para trabajar localmente.
 
-Clonar tu fork a tu computadora para trabajar localmente.
+3. Crear una nueva rama (branch) para tus cambios.
 
-Crear una nueva rama (branch) para tus cambios.
+4. Realizar los cambios
 
-Modificar funciones, mejorar la documentación o agregar ejemplos.
+5. Hacer commit y push de tus cambios a tu fork.
 
-Hacer commit y push de tus cambios a tu fork.
+6. Abrir un pull request (PR) desde tu fork hacia el repositorio original para que tus mejoras puedan ser revisadas e integradas.
 
-Abrir un pull request (PR) desde tu fork hacia el repositorio original para que tus mejoras puedan ser revisadas e integradas.
+También podes abrir un issue en GitHub para notificar un error, un problema con el paquete o proponer mejoras y arreglos.
+
+Para más información y detalles sobre cómo contribuir al paquete, podés visitar el siguiente sitio en github: https://github.com/catavujovich/analisismeteorologico/blob/master/.github/CONTRIBUTING.md
+
+
+## Autores
+**Catalina Vujovich**
+GitHub: catavujovich
 
