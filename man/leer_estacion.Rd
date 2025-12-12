@@ -2,36 +2,36 @@
 % Please edit documentation in R/leer_estacion.R
 \name{leer_estacion}
 \alias{leer_estacion}
-\title{Leer y descargar datos de una estación meteorológica}
+\title{Leer y descargar datos de una estacion meteorologica}
 \usage{
 leer_estacion(id_estacion, ruta)
 }
 \arguments{
-\item{id_estacion}{Cadena de texto con el identificador de la estación.
+\item{id_estacion}{Cadena de texto con el identificador de la estacion.
 Debe ser uno de: `"NH0472"`, `"NH0910"`, `"NH0046"`, `"NH0098"`, `"NH0437"`.}
 
-\item{ruta}{Ruta local donde se guardará el archivo CSV descargado.}
+\item{ruta}{Ruta local donde se guardara el archivo CSV descargado.}
 }
 \value{
-Un data frame con los datos de la estación seleccionada.
+Un data frame con los datos de la estacion seleccionada.
 }
 \description{
-`leer_estacion()` permite cargar datos de estaciones meteorológicas
-identificadas por su código (por ejemplo, `"NH0098"` o `"NH0472"`).
-Si el archivo no existe en la ruta local indicada, la función lo descarga
-automáticamente. Si la carpeta no existe, la crea.
+`leer_estacion()` permite cargar datos de estaciones meteorologicas
+identificadas por su codigo (por ejemplo, `"NH0098"` o `"NH0472"`).
+Si el archivo no existe en la ruta local indicada, la funcion lo descarga
+automaticamente. Si la carpeta no existe, la crea.
 }
 \details{
-Esta función descarga (si es necesario) y lee los datos correspondientes
-a una estación meteorológica determinada. Los datos provienen de un
-repositorio público y se guardan localmente en la ruta indicada.
+Esta funcion descarga (si es necesario) y lee los datos correspondientes
+a una estacion meteorologica determinada. Los datos provienen de un
+repositorio publico y se guardan localmente en la ruta indicada.
 }
 \examples{
 \dontrun{
-# Leer estación NH0098 y guardar el archivo en la carpeta datos/
+# Leer estacion NH0098 y guardar el archivo en la carpeta datos/
 datos_NH0098 <- leer_estacion("NH0098", "datos/NH0098.csv")
 
-# Otra estación
+# Otra estacion
 datos_NH0472 <- leer_estacion("NH0472", "datos/NH0472.csv")
 }
 
