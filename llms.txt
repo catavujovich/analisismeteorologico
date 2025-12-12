@@ -94,12 +94,16 @@ ejemplos para entender mejor su funcionamiento.
 
 ## All functions
 
-- [`NH0472`](https://catavujovich.github.io/analisismeteorologico/reference/Datos_meteorologicos.md)
-  [`NH0437`](https://catavujovich.github.io/analisismeteorologico/reference/Datos_meteorologicos.md)
-  [`NH0046`](https://catavujovich.github.io/analisismeteorologico/reference/Datos_meteorologicos.md)
-  [`NH0098`](https://catavujovich.github.io/analisismeteorologico/reference/Datos_meteorologicos.md)
-  [`NH0910`](https://catavujovich.github.io/analisismeteorologico/reference/Datos_meteorologicos.md)
-  : Datos meteorológicos diarios de estaciones
+- [`NH0046`](https://catavujovich.github.io/analisismeteorologico/reference/NH0046.md)
+  : Datos de la estación meteorológica NH0046
+- [`NH0098`](https://catavujovich.github.io/analisismeteorologico/reference/NH0098.md)
+  : Datos de la estación meteorológica NH0098
+- [`NH0437`](https://catavujovich.github.io/analisismeteorologico/reference/NH0437.md)
+  : Datos de la estación meteorológica NH0437
+- [`NH0472`](https://catavujovich.github.io/analisismeteorologico/reference/NH0472.md)
+  : Datos de la estación meteorológica NH0472
+- [`NH0910`](https://catavujovich.github.io/analisismeteorologico/reference/NH0910.md)
+  : Datos de la estación meteorológica NH0910
 - [`grafico_temperatura_mensual()`](https://catavujovich.github.io/analisismeteorologico/reference/grafico_temperatura_mensual.md)
   : Grafico de temperatura mensual promedio por estacion
 - [`leer_estacion()`](https://catavujovich.github.io/analisismeteorologico/reference/leer_estacion.md)
