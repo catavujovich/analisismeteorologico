@@ -3,3 +3,6 @@
 export(grafico_temperatura_mensual)
 export(leer_estacion)
 export(tabla_resumen_temperatura)
+importFrom(magrittr,"%>%")
+importFrom(stats,median)
+importFrom(stats,sd)
