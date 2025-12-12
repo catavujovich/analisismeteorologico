@@ -11,6 +11,7 @@ Description: Paquete desarrollado para leer y analizar datos meteorológicos de 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: xz
 URL: https://github.com/catavujovich/analisismeteorologico, https://catavujovich.github.io/analisismeteorologico/
 BugReports: https://github.com/catavujovich/analisismeteorologico/issues
 Imports: 
@@ -18,9 +19,9 @@ Imports:
     dplyr,
     ggplot2,
     readr,
-    testthat,
     tidyr,
-    lubridate
+    lubridate,
+    magrittr
 RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.5)
