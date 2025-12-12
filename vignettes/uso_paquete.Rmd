@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(analisismeteorologico)
 library(dplyr)
-library(tidyverse)
+library(tidyr)
 library(lubridate)
 ```
 
