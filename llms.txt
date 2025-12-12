@@ -83,13 +83,6 @@ Hacer commit y push de tus cambios a tu fork.
 Abrir un pull request (PR) desde tu fork hacia el repositorio original
 para que tus mejoras puedan ser revisadas e integradas.
 
-# Consultar la documentación interna de las funciones
-
-Ejemplo de uso: {r} ?leer_estacion ?tabla_resumen_temperatura
-
-Muestra cómo usar la función, sus argumentos, valores de retorno y
-ejemplos para entender mejor su funcionamiento.
-
 # Package index
 
 ## All functions
